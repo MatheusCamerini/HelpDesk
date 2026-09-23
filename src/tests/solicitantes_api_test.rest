@@ -1,0 +1,80 @@
+@baseURL = http://localhost:3000
+@id_do_solicitante = 1
+
+###
+GET {{baseURL}}/solicitantes
+Accept: application/json
+
+###
+GET {{baseURL}}/solicitantes/{{id_do_solicitante}}
+Accept: application/json
+
+###
+GET {{baseURL}}/solicitantes/9999
+Accept: application/json
+
+###
+POST {{baseURL}}/solicitantes
+Content-Type: application/json
+
+{
+  "nome": "Diego Martins",
+  "email": "diego.martins@empresa.com",
+  "setor": "TI"
+}
+
+###
+POST {{baseURL}}/solicitantes
+Content-Type: application/json
+
+{
+  "nome": "Teste Email Invalido",
+  "email": "email_invalido",
+  "setor": "TI"
+}
+
+###
+POST {{baseURL}}/solicitantes
+Content-Type: application/json
+
+{
+  "nome": "Sem Email"
+}
+
+###
+POST {{baseURL}}/solicitantes
+Content-Type: application/json
+
+{
+  "nome": "Ana Souza Duplicada",
+  "email": "ana.souza@empresa.com",
+  "setor": "Financeiro"
+}
+
+###
+PUT {{baseURL}}/solicitantes/{{id_do_solicitante}}
+Content-Type: application/json
+
+{
+  "nome": "Ana Souza Atualizada",
+  "email": "ana.souza.atualizada@empresa.com",
+  "setor": "Financeiro"
+}
+
+###
+PUT {{baseURL}}/solicitantes/9999
+Content-Type: application/json
+
+{
+  "nome": "Usuario Inexistente",
+  "email": "inexistente@empresa.com",
+  "setor": "TI"
+}
+
+###
+DELETE {{baseURL}}/solicitantes/{{id_do_solicitante}}
+Accept: application/json
+
+###
+DELETE {{baseURL}}/solicitantes/9999
+Accept: application/json
