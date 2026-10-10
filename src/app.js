@@ -6,6 +6,7 @@ const categoriaRoutes = require('./routes/categoriaRoutes');
 const tecnicoRoutes = require('./routes/tecnicoRoutes');
 const solicitanteRoutes = require('./routes/solicitanteRoutes');
 const errorMiddleware = require('./middlewares/errorMiddleware');
+const chamadoRoutes = require('./routes/chamadoRoutes');
 
 const app = express();
 
@@ -16,6 +17,7 @@ app.use(express.json());
 app.use('/categorias', categoriaRoutes);
 app.use('/tecnicos', tecnicoRoutes);
 app.use('/solicitantes', solicitanteRoutes);
+app.use('/chamados', chamadoRoutes);
 
 app.use(errorMiddleware);
 

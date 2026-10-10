@@ -1,0 +1,162 @@
+@baseURL = http://localhost:3000
+@id_do_chamado = 1
+
+###
+GET {{baseURL}}/chamados
+Accept: application/json
+
+###
+GET {{baseURL}}/chamados/{{id_do_chamado}}
+Accept: application/json
+
+###
+GET {{baseURL}}/chamados/9999
+Accept: application/json
+
+###
+POST {{baseURL}}/chamados
+Content-Type: application/json
+
+{
+  "titulo": "Computador nao inicia",
+  "descricao": "O computador nao liga apos queda de energia",
+  "prioridade": "ALTA",
+  "solicitante_id": 1,
+  "categoria_id": 1
+}
+
+###
+POST {{baseURL}}/chamados
+Content-Type: application/json
+
+{
+  "titulo": "Instalar programa",
+  "descricao": "Preciso do pacote de escritorio instalado",
+  "solicitante_id": 2,
+  "categoria_id": 2
+}
+
+###
+POST {{baseURL}}/chamados
+Content-Type: application/json
+
+{
+  "titulo": "Sem descricao e sem categoria",
+  "solicitante_id": 1
+}
+
+###
+POST {{baseURL}}/chamados
+Content-Type: application/json
+
+{
+  "titulo": "Solicitante inexistente",
+  "descricao": "Teste",
+  "solicitante_id": 9999,
+  "categoria_id": 1
+}
+
+###
+POST {{baseURL}}/chamados
+Content-Type: application/json
+
+{
+  "titulo": "Categoria inexistente",
+  "descricao": "Teste",
+  "solicitante_id": 1,
+  "categoria_id": 9999
+}
+
+###
+POST {{baseURL}}/chamados
+Content-Type: application/json
+
+{
+  "titulo": "Prioridade invalida",
+  "descricao": "Teste",
+  "prioridade": "URGENTE",
+  "solicitante_id": 1,
+  "categoria_id": 1
+}
+
+###
+PUT {{baseURL}}/chamados/{{id_do_chamado}}
+Content-Type: application/json
+
+{
+  "prioridade": "BAIXA"
+}
+
+###
+PUT {{baseURL}}/chamados/{{id_do_chamado}}
+Content-Type: application/json
+
+{
+  "status": "EM_ATENDIMENTO"
+}
+
+###
+PUT {{baseURL}}/chamados/{{id_do_chamado}}
+Content-Type: application/json
+
+{
+  "tecnico_id": 9999
+}
+
+###
+PUT {{baseURL}}/chamados/{{id_do_chamado}}
+Content-Type: application/json
+
+{
+  "tecnico_id": 1,
+  "status": "EM_ATENDIMENTO"
+}
+
+###
+PUT {{baseURL}}/chamados/{{id_do_chamado}}
+Content-Type: application/json
+
+{
+  "status": "CONCLUIDO"
+}
+
+###
+PUT {{baseURL}}/chamados/{{id_do_chamado}}
+Content-Type: application/json
+
+{
+  "status": "CONCLUIDO",
+  "solucao": "Fonte de alimentacao substituida"
+}
+
+###
+PUT {{baseURL}}/chamados/{{id_do_chamado}}
+Content-Type: application/json
+
+{
+  "status": "FECHADO"
+}
+
+###
+PUT {{baseURL}}/chamados/{{id_do_chamado}}
+Content-Type: application/json
+
+{
+  "prioridade": "CRITICA"
+}
+
+###
+PUT {{baseURL}}/chamados/9999
+Content-Type: application/json
+
+{
+  "status": "ABERTO"
+}
+
+###
+DELETE {{baseURL}}/chamados/{{id_do_chamado}}
+Accept: application/json
+
+###
+DELETE {{baseURL}}/chamados/9999
+Accept: application/json
